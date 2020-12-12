@@ -1,0 +1,106 @@
+<%- include('../../../partials/header.ejs') %>
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <%- include('../../../partials/sidebar.ejs') %>
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <%- include('../../../partials/navbar.ejs') %>
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <%- include('../../../partials/alert.ejs') %>
+          <!-- Page Heading -->
+          <h1 class="h3 mb-4 text-gray-800">Detail Items</h1>
+          <!-- <img src="/sb-admin-2/img/logo.svg" alt=""> -->
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="feature-tab" data-toggle="tab" href="#show-feature" role="tab" aria-controls="feature" aria-selected="true">Show Feature</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="activity-tab" data-toggle="tab" href="#show-activity" role="tab" aria-controls="activity" aria-selected="false">Show Activity</a>
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="show-feature" role="tabpanel" aria-labelledby="home-tab">
+                    <%- include('show_feature.ejs') %>
+                </div>
+                <div class="tab-pane fade" id="show-activity" role="tabpanel" aria-labelledby="profile-tab">
+                    <%- include('show_activity.ejs') %>
+                </div>
+              </div>
+            </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+      <%- include('../../../partials/footer.ejs') %>
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%- include('modal_edit_feature.ejs') %>
+  <%- include('modal_edit_activity.ejs') %>
+  <%- include('../../../partials/js.ejs') %>
+  <script>
+      $(document).ready(function() {
+          $('#dataTableActivity').DataTable();
+      });
+    // CKEDITOR.replace( 'about' );
+
+    $('#dataTable').on('click', '.update-feature', function(){
+      let id = $(this).data('id');
+      let name = $(this).data('name');
+      let qty = $(this).data('qty');
+      console.log('ini isi:', id + name + qty);
+      $('#edit-feature').modal('show');
+      $('.id').val(id);
+      $('.name').val(name);
+      $('.qty').val(qty);
+    });
+
+    $('#dataTableActivity').on('click', '.update-activity', function(){
+      let id = $(this).data('id');
+      let name = $(this).data('name');
+      let type = $(this).data('type');
+      console.log('ini isi:', id + name + type);
+      $('#edit-activity').modal('show');
+      $('.id').val(id);
+      $('.name').val(name);
+      $('.type').val(type);
+    });
+  </script>
