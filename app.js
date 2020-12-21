@@ -22,7 +22,7 @@ var usersRouter = require('./routes/users');
 //router admin
 const adminRouter = require('./routes/admin');
 const apiRouter = require('./routes/api');
-const cros = require('cors');
+const cors = require('cors');
 
 var app = express();
 
