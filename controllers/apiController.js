@@ -103,7 +103,7 @@ module.exports = {
     bookingPage: async (req, res) => {
 
         const {
-            idItem,
+            itemId,
             duration,
             bookingStartDate,
             bookingEndDate,
@@ -119,7 +119,7 @@ module.exports = {
             return res.status(404).json({message: "Image not found"});
         }
 
-        if (idItem === undefined ||
+        if (itemId === undefined ||
             duration === undefined ||
             bookingStartDate === undefined ||
             bookingEndDate === undefined ||
@@ -133,7 +133,7 @@ module.exports = {
             return res.status(404).json({message: "Please complete all fields"});
         }
 
-        const item = await Item.findOne({_id: idItem});
+        const item = await Item.findOne({_id: itemId});
         if (!item) {
             return res.status(404).json({message: "Item not found"});
         }
