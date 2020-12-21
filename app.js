@@ -37,6 +37,7 @@ app.use(session({
   cookie: { maxAge: 60000 }
 }));
 app.use(flash());
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -49,7 +50,7 @@ app.use('/users', usersRouter);
 //admin
 app.use('/admin', adminRouter);
 app.use('/api/v1/member', apiRouter);
-app.use(cors());
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
