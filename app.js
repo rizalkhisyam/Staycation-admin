@@ -25,7 +25,6 @@ const apiRouter = require('./routes/api');
 const cors = require('cors');
 
 var app = express();
-var hour = 3600000;
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
