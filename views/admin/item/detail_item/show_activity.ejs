@@ -1,7 +1,7 @@
 <div class="card shadow mb-4 mt-2">
     <div class="card-body">
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-6">
               <form action="/admin/item/add/activity" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="name">Name activity</label>
@@ -19,7 +19,7 @@
                 <button type="submit" class="btn btn-primary">Save</button>
               </form>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-6">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTableActivity" width="100%" cellspacing="0">
                       <thead>
@@ -33,6 +33,7 @@
                       </thead>
                       <tbody>
                         <% for(let i = 0; i < activity.length; i++) { %>
+                          <tr>
                           <td><%= i + 1 %></td>
                           <td><%= activity[i].name %></td>
                           <td><%= activity[i].type %></td>
@@ -53,6 +54,7 @@
                            <button type="submit" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></button>
                            </form>
                          </td>
+                        </tr>
                          <% } %>
                       </tbody>
                     </table>
